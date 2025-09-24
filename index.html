@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WANTOK</title>
+
+  <!-- Meta -->
+  <meta name="description" content="Insert a brief company description here." />
+  <meta property="og:title" content="Company Name | Tagline Goes Here" />
+  <meta property="og:description" content="Insert a brief description here." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x627.png?text=Banner" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon & Styles -->
+  <link rel="shortcut icon" href="https://via.placeholder.com/32x32.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="https://scottsmiraclegro.com/wp-content/themes/smg-2019/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    .header nav ul li a {
+      color: black;
+      text-decoration: none;
+      /* font-weight: bold; */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      background: url('images/hero/04.jpg') center/cover no-repeat;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background: #00703c;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 3px;
+      margin-top: 1em;
+    }
+
+    .callout-1 {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .callout-1 .w-50 {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .fill-bg {
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .brands .w-20 img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .press .w-25 {
+      padding: 1rem;
+    }
+
+    .header .wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 增强的页脚样式 */
+    footer {
+      background: #333;
+      color: white;
+      padding: 40px 0 20px;
+      font-size: 14px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      margin-bottom: 30px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 20px;
+      padding: 0 15px;
+    }
+
+    .footer-column h3 {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #00703c;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    /* 垂直排列的社交媒体样式 */
+    .vertical-social {
+      padding-top: 5px;
+    }
+
+    .vertical-social li {
+      margin-bottom: 15px !important;
+    }
+
+    .vertical-social a {
+      color: white;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .vertical-social a:hover {
+      color: #00703c;
+      transform: translateX(5px);
+    }
+
+    .vertical-social i {
+      margin-right: 10px;
+      font-size: 22px;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      border-top: 1px solid #555;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+    }
+
+    .footer-bottom-links {
+      margin-top: 10px;
+    }
+
+    .footer-bottom-links a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .footer-bottom-links a:hover {
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .callout-1 {
+        flex-direction: column;
+      }
+
+      .footer-column {
+        flex: 0 0 50%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-column {
+        flex: 0 0 100%;
+      }
+    }
+
+    .manual-section {
+      background: #f9f9f9;
+      padding: 30px 10px;
+      text-align: center;
+    }
+
+    .manual-section h2 {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .manual-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .manual-card {
+      background: white;
+      width: 22%;
+      min-height: 550px;
+      min-width: 250px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .manual-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .manual-card img {
+        width: 100%;
+        height: 70%;
+        background-color: #e0e0e0; /* 淡灰色背景作为占位 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: #777;
+        position: relative;
+    }
+
+    .manual-card-content {
+        padding: 15px;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .manual-card-content h3 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      color: #00703c;
+    }
+
+    .manual-card-content p {
+      font-size: 15px;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .manual-card {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .manual-card {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="wrapper">
+      <div>
+        <a href="#"><img src="images/logo2.png" alt="Logo" /></a>
+      </div>
+      <nav>
+        
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">PRODUCTS</a></li>
+          <li><a href="#">ENTER WANTOK</a></li>
+          <li><a href="#">NEWS</a></li>
+          <li><a href="#">ABOUT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero gutter">
+    <div class="wrapper align-center mh35vh">
+      <div class="w-50">
+        <h1 style="color:white;">Inspiring Growth,<br />Empowering Communities</h1>
+        <p class="mb20" style="color:white;">We believe in growing more than just gardens — we grow futures.</p>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Callout Section -->
+  <section class="gutter bot white">
+    <div style="height: 40px;"></div>
+    <div class="wrapper">
+      <a href="#" class="callout-1 rev-col-m">
+        <div class="w-50">
+          <div class="gutter well grey">
+            <span>Innovation</span>
+            <h2>New Sustainable Product Line Launch</h2>
+            <p>Discover how we're leading the charge in eco-friendly gardening solutions.</p>
+          </div>
+        </div>
+        <div class="w-50">
+          <div class="fill-bg" style="background-image: url('images/section1/1.png');"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="wrapper">
+      <a href="#" class="callout-1 rev-col-m">
+        <div class="w-50">
+          <div class="gutter well grey">
+            <span>Learning Activities</span>
+            <h2>Hands-on Outdoor Learning for Kids</h2>
+            <p>72 free lessons to engage young minds through gardening and nature.</p>
+          </div>
+        </div>
+        <div class="w-50">
+          <div class="fill-bg" style="background-image: url('images/section1/2.png');"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="wrapper">
+      <a href="#" class="callout-1">
+        <div class="w-50">
+          <div class="fill-bg" style="background-image: url('images/section1/3.png');"></div>
+        </div>
+        <div class="w-50">
+          <div class="gutter well grey" style="text-align: right;">
+            <span>Learning Activities</span>
+            <h2>Hands-on Outdoor Learning for Kids</h2>
+            <p>72 free lessons to engage young minds through gardening and nature.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="wrapper">
+      <a href="#" class="callout-1">
+        <div class="w-50">
+          <div class="fill-bg" style="background-image: url('images/section1/4.png');"></div>
+        </div>
+        <div class="w-50">
+          <div class="gutter well grey" style="text-align: right;">
+            <span>Learning Activities</span>
+            <h2>Hands-on Outdoor Learning for Kids</h2>
+            <p>72 free lessons to engage young minds through gardening and nature.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <section class="manual-section">
+    <h2>PRODUCTS BROCHURE</h2>
+    <div class="manual-grid">
+      <div class="manual-card">
+        <img src="images/manual-covers/1.png" alt="Manual 1">
+        <div class="manual-card-content">
+          <h3>BROCHURE 1</h3>
+          <p>BROCHURE BROCHURE BROCHURE BROCHURE BROCHURE BROCHURE BROCHURE</p>
+        </div>
+      </div>
+      <div class="manual-card">
+        <img src="images/manual-covers/1.png" alt="Manual 2">
+        <div class="manual-card-content">
+          <h3>BROCHURE 2</h3>
+          <p>BROCHURE BROCHURE BROCHURE BROCHURE BROCHURE BROCHURE BROCHURE</p>
+        </div>
+      </div>
+      <div class="manual-card">
+        <img src="images/manual-covers/1.png" alt="Manual 3">
+        <div class="manual-card-content">
+          <h3>BROCHURE 3</h3>
+          <p>BROCHURE 3BROCHURE 3BROCHURE 3BROCHURE 3BROCHURE 3BROCHURE 3</p>
+        </div>
+      </div>
+      <div class="manual-card">
+        <img src="images/manual-covers/1.png" alt="Manual 4">
+        <div class="manual-card-content">
+          <h3>BROCHURE 4</h3>
+          <p>BROCHURE 4BROCHURE 4BROCHURE 4BROCHURE 4BROCHURE</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Brands Section -->
+    <section class="gutter white center brands">
+      <h2 class="brand-title">Trusted Partners</h2>
+      <div class="wrapper justify-content wrap">
+        <div class="carousel-item active"><img src="images\favicon.png"></div>
+        <div class="carousel-item"><img src="images\favicon.png"></div>
+        <div class="carousel-item"><img src="images\favicon.png"></div>
+        <div class="carousel-item"><img src="images\favicon.png"></div>
+        <div class="carousel-item"><img src="images\favicon.png"></div>
+      </div>
+    </section>
+
+    <!-- 增强的页脚 -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Who We Are</h3>
+          <ul>
+            <li><a href="#">Our Purpose</a></li>
+            <li><a href="#">Where We Stand</a></li>
+            <li><a href="#">Brands</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="#">Leadership</a></li>
+            <li><a href="#">Corporate Responsibility</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Our Impact</h3>
+          <ul>
+            <li><a href="#">The WANTOK Foundation</a></li>
+            <li><a href="#">Community Enhancement</a></li>
+            <li><a href="#">Water Stewardship</a></li>
+            <li><a href="#">The Legacy Project</a></li>
+            <li><a href="#">Social Justice Fund</a></li>
+            <li><a href="#">The Pollinator Promise</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Careers</h3>
+          <ul>
+            <li><a href="#">Why Join Us</a></li>
+            <li><a href="#">Health & Wellness Benefits</a></li>
+            <li><a href="#">Our Workplace Culture</a></li>
+            <li><a href="#">Military & Veterans</a></li>
+            <li><a href="#">Diversity & Inclusion</a></li>
+            <li><a href="#">Internships</a></li>
+          </ul>
+        </div>
+
+        <!-- 调整后的垂直社交媒体列 -->
+        <div class="footer-column">
+          <h3>Connect With Us</h3>
+          <ul class="vertical-social">
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p style="font-size: 0.875rem;">
+          © 2019 - 2025 WANTOK Company. Worldwide Rights Reserved. ® or ™ indicates a trademark of WANTOK Company or its affiliates.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+</body>
+
+</html>
