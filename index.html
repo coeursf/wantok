@@ -33,8 +33,53 @@
       padding: 0;
     }
 
+    /* Hero轮播样式 */
     .hero {
-      background: url('images/hero/04.jpg') center/cover no-repeat;
+      position: relative;
+      height: 35vh; /* 设置Hero区域高度（可根据需求调整） */
+      overflow: hidden; /* 隐藏溢出的图片 */
+    }
+
+    .hero:before {
+      content: ""; 
+      position: absolute;
+      left: 0; 
+      bottom: 0;
+      width: 75%; 
+      height: 100%; 
+      background: linear-gradient(to right, #000000, transparent);
+      opacity: 0.7;
+      transition: all 3s; 
+      z-index: 1; 
+    }
+
+    .hero-slides {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0; /* 让图片在文字下方 */
+    }
+
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0; /* 默认隐藏 */
+      transition: opacity 0.5s ease-in-out; /* 切换动画 */
+    }
+
+    .hero-slide.active {
+      opacity: 1; /* 激活的图片显示 */
+    }
+
+    /* 原有文字区域保持层级 */
+    .hero .wrapper {
+      position: relative;
+      z-index: 1; /* 确保文字在图片上方 */
     }
 
     .btn {
@@ -46,6 +91,7 @@
       border-radius: 3px;
       margin-top: 1em;
     }
+
 
     .callout-1 {
       display: flex;
@@ -305,6 +351,14 @@
 
   <!-- Hero Section -->
   <section class="hero gutter">
+      <div class="hero-slides">
+      <img src="images/hero/01.jpg" alt="Hero Image 1" class="hero-slide active">
+      <img src="images/hero/02.jpg" alt="Hero Image 2" class="hero-slide">
+      <img src="images/hero/03.jpg" alt="Hero Image 3" class="hero-slide">
+      <img src="images/hero/04.jpg" alt="Hero Image 4" class="hero-slide">
+      <img src="images/hero/05.jpg" alt="Hero Image 4" class="hero-slide">
+    </div>
+    
     <div class="wrapper align-center mh35vh">
       <div class="w-50">
         <h1 style="color:white;">Inspiring Growth,<br />Empowering Communities</h1>
@@ -486,6 +540,25 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+
+    <!-- 轮播逻辑JS -->
+    <script>
+    $(document).ready(function() {
+      const slides = $('.hero-slide');
+      let currentIndex = 0;
+      const intervalTime = 3000; // 切换间隔（3秒）
+
+      // 自动切换函数
+      function autoSlide() {
+        slides.eq(currentIndex).removeClass('active');
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides.eq(currentIndex).addClass('active');
+      }
+
+      // 启动自动轮播
+      setInterval(autoSlide, intervalTime);
+    });
+    </script>
 </body>
 
 </html>
