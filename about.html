@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WANTOK</title>
+
+  <!-- Meta -->
+  <meta name="description" content="Insert a brief company description here." />
+  <meta property="og:title" content="Company Name | Tagline Goes Here" />
+  <meta property="og:description" content="Insert a brief description here." />
+  <meta property="og:image" content="https://via.placeholder.com/1200x627.png?text=Banner" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon & Styles -->
+  <link rel="shortcut icon" href="https://via.placeholder.com/32x32.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="https://scottsmiraclegro.com/wp-content/themes/smg-2019/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    .header nav ul li a {
+      color: black;
+      text-decoration: none;
+      /* font-weight: bold; */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Fixed header image + overlay content */
+    .header-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70vh;
+      background-image: url('images/about/factory_image.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      z-index: 0;
+      will-change: background-position, transform;
+    }
+
+    .content-wrapper {
+      position: relative;
+      margin-top: 50vh;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 2rem 2rem 0 0;
+      box-shadow: 0 -4px 18px rgba(0,0,0,0.08);
+      transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease;
+      z-index: 2;
+    }
+
+    .content-wrapper.overlay-active {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    /* Ensure header image not fixed on small devices for performance */
+    @media (max-width: 480px) {
+      .header-image {
+        position: relative;
+        height: 40vh;
+        background-attachment: scroll;
+      }
+
+      .content-wrapper {
+        margin-top: 0;
+        border-radius: 0.75rem 0.75rem 0 0;
+        padding: 1rem;
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background: #00703c;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 3px;
+      margin-top: 1em;
+    }
+
+    /* button variant (new) */
+    .btn-green {
+      display: inline-block;
+      padding: 0.75em 1.5em;
+      background: #00703c; /* same as ↑ */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 1em;
+      border: 2px solid rgba(0,0,0,0.08);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+    }
+
+    .btn-green:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      background: #00703c;
+    }
+
+    .btn-green:focus {
+      outline: 3px solid rgba(27, 136, 13, 0.18);
+      outline-offset: 2px;
+    }
+
+
+    .callout-1 {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .callout-1 .w-50 {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .fill-bg {
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .brands .w-20 img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .press .w-25 {
+      padding: 1rem;
+    }
+
+    .header .wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 增强的页脚样式 */
+    footer {
+      background: #333;
+      color: white;
+      padding: 40px 0 20px;
+      font-size: 14px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      margin-bottom: 30px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 20px;
+      padding: 0 15px;
+    }
+
+    .footer-column h3 {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #00703c;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    /* 垂直排列的社交媒体样式 */
+    .vertical-social {
+      padding-top: 5px;
+    }
+
+    .vertical-social li {
+      margin-bottom: 15px !important;
+    }
+
+    .vertical-social a {
+      color: white;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .vertical-social a:hover {
+      color: #00703c;
+      transform: translateX(5px);
+    }
+
+    .vertical-social i {
+      margin-right: 10px;
+      font-size: 22px;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      border-top: 1px solid #555;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+    }
+
+    .footer-bottom-links {
+      margin-top: 10px;
+    }
+
+    .footer-bottom-links a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .footer-bottom-links a:hover {
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .callout-1 {
+        flex-direction: column;
+      }
+
+      .footer-column {
+        flex: 0 0 50%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-column {
+        flex: 0 0 100%;
+      }
+    }
+
+    .manual-section {
+      background: #f9f9f9;
+      padding: 30px 10px;
+      text-align: center;
+    }
+
+    .manual-section h2 {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .manual-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .manual-card {
+      background: white;
+      width: 22%;
+      min-height: 550px;
+      min-width: 250px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .manual-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .manual-card img {
+        width: 100%;
+        height: 70%;
+        background-color: #e0e0e0; /* 淡灰色背景作为占位 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: #777;
+        position: relative;
+    }
+
+    .manual-card-content {
+        padding: 15px;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .manual-card-content h3 {
+      font-size: 20px;
+      margin: 0 0 10px;
+      color: #00703c;
+    }
+
+    .manual-card-content p {
+      font-size: 15px;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .manual-card {
+        width: 45%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .manual-card {
+        width: 100%;
+      }
+    }
+
+    /* Brands carousel styling */
+    .brands .wrapper {
+      display: flex;
+      align-items: center;
+      gap: 128px; /* 36 */
+    }
+
+    /* When Slick initializes it wraps the items and sets widths.
+       The site's `.wrapper` class defaults to flex which conflicts
+       with Slick's layout. Force the slick container to behave like
+       a block container and let the track be a flex row so slides
+       get correct auto widths and don't collapse to 0px. */
+    .brands .wrapper.slick-slider {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .brands .wrapper .slick-list {
+      overflow: hidden;
+    }
+
+    .brands .wrapper .slick-track {
+      display: flex !important;
+      align-items: center;
+      gap: 128px; /* spacing between slides */
+    }
+
+    /* When the number of slides is small and all icons fit, center them */
+    .brands .wrapper.justify-content {
+      justify-content: center !important;
+    }
+
+    /* Also ensure the slick track centers its children when they don't overflow */
+    .brands .wrapper.slick-slider .slick-track {
+      justify-content: center !important;
+    }
+
+    .brands .carousel-item,
+    .brands .wrapper .slick-slide {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto !important; /* prevent stretching */
+      width: auto !important; /* allow Slick to size slides based on content */
+      margin: 0 !important;
+      padding: 0 6px;
+    }
+
+    .brands .carousel-item img,
+    .brands .wrapper .slick-slide img {
+      max-height: 128px; /* doubled logo size (was 64px) */
+      width: auto;
+      display: block;
+    }
+
+    /* Generic carousel images */
+    .carousel-item img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Slight spacing for our about carousels */
+    .factory-carousel .carousel-item,
+    .process-carousel .carousel-item,
+    .expo-carousel .carousel-item {
+      padding: 6px;
+      box-sizing: border-box;
+    }
+
+    /* Unified three-column visuals layout */
+    .three-grid {
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 0 30px;
+    }
+
+    .three-grid .col {
+      flex: 1 1 0;
+      min-width: 220px;
+      background: transparent;
+    }
+
+    .three-grid .col h3 {
+      margin: 0 0 12px;
+      color: #00703c;
+      font-size: 18px;
+    }
+
+    /* Visual card and overlay title */
+    .visual-card { position: relative; overflow: hidden; }
+    .overlay-title {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 3;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    /* Larger unified carousel images (one image shown at a time) */
+    .three-grid .carousel-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 880px) {
+      .three-grid { flex-direction: column; gap: 20px; }
+      .three-grid .col { min-width: 100%; }
+      .three-grid .carousel-item img { height: 200px; }
+      .overlay-title { top: 8px; left: 8px; font-size: 14px; }
+    }
+
+    /* Reduce vertical gap between visuals and about text */
+    .visuals-unified.gutter { padding-top: 12px; padding-bottom: 18px; }
+    .profile-section.gutter { padding-top: 12px; padding-bottom: 40px; }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="wrapper">
+      <div>
+        <a href="#"><img src="images/logo2.png" alt="Logo" /></a>
+      </div>
+      <nav>
+        
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">PRODUCTS</a></li>
+          <li><a href="#">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="header-image" role="img" aria-label="Factory header image"></div>
+
+  <div class="content-wrapper">
+
+  <!-- images -->
+  <section class="gutter white center visuals-unified">
+    <div class="wrapper">
+      <h2 class="section-title">About Us</h2>
+    </div>
+
+    <div class="three-grid">
+      <div class="col factory-col">
+        <div class="visual-card">
+          <div class="overlay-title">Our Factory</div>
+          <div class="factory-carousel">
+            <div class="carousel-item"><a data-fancybox="factory" href="images/about/factory_image.jpg"><img src="images/about/factory_image.jpg" alt="Factory 1"></a></div>
+            <div class="carousel-item"><a data-fancybox="factory" href="images/about/factory_image-2.jpg"><img src="images/about/factory_image-2.jpg" alt="Factory 2"></a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col process-col">
+        <div class="visual-card">
+          <div class="overlay-title">Manufacturing</div>
+          <div class="process-carousel">
+            <div class="carousel-item"><a data-fancybox="process" href="images/about/process1.jpg"><img src="images/about/process1.jpg" alt="Process 1"></a></div>
+            <div class="carousel-item"><a data-fancybox="process" href="images/about/process2.jpg"><img src="images/about/process2.jpg" alt="Process 2"></a></div>
+            <div class="carousel-item"><a data-fancybox="process" href="images/about/process3.jpg"><img src="images/about/process3.jpg" alt="Process 3"></a></div>
+            <div class="carousel-item"><a data-fancybox="process" href="images/about/process4.jpg"><img src="images/about/process4.jpg" alt="Process 4"></a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col expo-col">
+        <div class="visual-card">
+          <div class="overlay-title">Exhibitions</div>
+          <div class="expo-carousel">
+            <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo1.jpg"><img src="images/about/expo1.jpg" alt="Expo 1"></a></div>
+            <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo2.jpg"><img src="images/about/expo2.jpg" alt="Expo 2"></a></div>
+            <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo3.jpg"><img src="images/about/expo3.jpg" alt="Expo 3"></a></div>
+            <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo4.jpg"><img src="images/about/expo4.jpg" alt="Expo 4"></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- text -->
+  <section class="gutter white center profile-section">
+    <div class="wrapper">
+      <h2 class="section-title"></h2>
+      <div style="max-width:900px;margin:0 auto;padding:40px;background:#ffffff;border-radius:6px;text-align:center;color:#333;">
+        <p>WANTOK GARDENING is a professional manufacturer and trader for the gardening tools and hand tools which was established in 1993. The main products include all kinds of Rakes, Scissors, Spades, Saws and other dozens of categories, tens of thousands of kinds of tools. WANTOK is devoting itself to making labor an easier thing.</p>
+
+        <p>As a professional manufacturer, WANTOK has passed the BSCI, ICS, FSC and other professional inspection strict inspection. Perfect management system and quality system is the foundation for the development of the factory. At present, WANTOK has its own supply chain and warehouses in Shandong, Hebei and Zhejiang provinces of China.</p>
+
+        <p>WANTOK attaches great importance to talent construction and actively trains up its own R&amp;D team. At present, three products systems have been formed, and more than 10,000 products are sold worldwide every year.</p>
+
+        <p>WANTOK is attractive to customers in different regions. In the past two decades, more than 300 professional customers all over the world have cooperated with WANTOK.</p>
+
+        <p>Headquartered in Shanghai Oriental global enterprise park, the company provides one-stop procurement services for global customers: ordering, inspection, packaging supervision, after-sales and other worry-free services.</p>
+
+        <p>Excellent quality, preferential price and best service are always our tenet and eternal goal. Choose “WANTOK” one-stop shopping feels at ease! Product quality and cooperates with TUV, BV, SGS and other internationally renowned third-party inspection institutions for a long time.</p>
+
+        <p><strong>Excellent quality, preferential price and best service are always our tenet and eternal goal. Choose “WANTOK” one-stop shopping feels at ease!</strong></p>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+    <!-- 增强的页脚 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
+                    <li>Address: 123 Main St, Anytown, USA</li>
+                    <li>Telephone: <a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                    <li><a href="https://www.google.com/maps/place/123+Main+St,+Anytown,+USA" target="_blank">View on Map</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul class="vertical-social">
+                    <li><a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="font-size: 0.875rem;">© 2019 - 2025 WANTOK Company. Worldwide Rights Reserved. ® or ™ indicates a trademark of WANTOK Company or its affiliates.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+
+    <!-- 轮播与滚动逻辑JS -->
+    <script>
+    $(document).ready(function() {
+      const $header = $('.header-image');
+      const $content = $('.content-wrapper');
+
+      // Parallax + overlay toggle (performant with rAF)
+      function updateOnScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+
+        // Parallax effect: move background position slightly
+        // Multiply by small factor for subtle effect
+        const yOffset = Math.round(scrollY * 0.18);
+        $header.css('background-position', `center calc(50% + ${yOffset}px)`);
+
+        // Toggle active overlay class for small UI lift and shadow
+        if (scrollY > 20) {
+          $content.addClass('overlay-active');
+        } else {
+          $content.removeClass('overlay-active');
+        }
+      }
+
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            updateOnScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Run once to set initial state
+      updateOnScroll();
+
+      // Initialize factory carousel (2 images, autoplay)
+      if ($('.factory-carousel').length && $.fn.slick) {
+        $('.factory-carousel').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 3000,
+          arrows: false,
+          dots: false,
+          infinite: true,
+        });
+      }
+
+      // Initialize process & expo carousels
+      if ($('.process-carousel').length && $.fn.slick) {
+        $('.process-carousel').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1800,
+          arrows: false,
+          dots: false,
+          infinite: true,
+          responsive: [
+            { breakpoint: 480, settings: { slidesToShow: 1 } }
+          ]
+        });
+      }
+
+      if ($('.expo-carousel').length && $.fn.slick) {
+        $('.expo-carousel').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          arrows: false,
+          dots: false,
+          infinite: true,
+          responsive: [
+            { breakpoint: 480, settings: { slidesToShow: 1 } }
+          ]
+        });
+      }
+    });
+    </script>
+</body>
+
+</html>
