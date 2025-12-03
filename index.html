@@ -120,6 +120,36 @@
       outline-offset: 2px;
     }
 
+    
+      /* Address + embedded map two-column layout */
+    .address-maps {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .address-maps .office {
+      flex: 1 1 50%;
+      min-width: 220px;
+    }
+
+    .address-maps .office a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 200px;
+      border: 0;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .address-maps {
+      flex-direction: column;
+      }
+    }  
 
     .callout-1 {
       display: flex;
@@ -396,15 +426,17 @@
       align-items: center;
       justify-content: center;
       flex: 0 0 auto !important; /* prevent stretching */
-      width: auto !important; /* allow Slick to size slides based on content */
+      width: 160px !important; /* unified slide width */
+      height: 128px !important; /* unified slide height */
       margin: 0 !important;
       padding: 0 6px;
     }
 
     .brands .carousel-item img,
     .brands .wrapper .slick-slide img {
-      max-height: 128px; /* doubled logo size (was 64px) */
-      width: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       display: block;
     }
 
@@ -424,7 +456,7 @@
         <ul>
           <li><a href="#">HOME</a></li>
           <li><a href="/about.html">ABOUT US</a></li>
-          <li><a href="#">PRODUCTS</a></li>
+          <li><a href="/pdfpage.html">PRODUCTS</a></li>
           <li><a href="#footer">CONTACT US</a></li>
         </ul>
       </nav>
@@ -532,32 +564,54 @@
     <section class="gutter white center brands">
       <h2 class="brand-title">Trusted Partners</h2>
       <div class="wrapper justify-content wrap">
-        <div class="carousel-item active"><img src="images\favicon.png"></div>
-        <div class="carousel-item"><img src="images\favicon.png"></div>
-        <div class="carousel-item"><img src="images\favicon.png"></div>
-        <div class="carousel-item"><img src="images\favicon.png"></div>
-        <div class="carousel-item"><img src="images\favicon.png"></div>
+        <div class="carousel-item active"><img src="images/trusted-partners/1.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/2.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/3.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/4.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/5.png"></div>
       </div>
     </section>
 
     <!-- 增强的页脚 -->
     <footer id="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <ul>
-                    <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
-                    <li>Address: 123 Main St, Anytown, USA</li>
-                    <li>Telephone: <a href="tel:+1234567890">+1 (234) 567-890</a></li>
-                    <li><a href="https://www.google.com/maps/place/123+Main+St,+Anytown,+USA" target="_blank">View on Map</a></li>
-                </ul>
-            </div>
+                <div class="footer-container">
+                        <div class="footer-column">
+                            <h3>Contact Us</h3>
+                            <div class="address-maps">
+                                <div class="office">
+                                    <a href="https://maps.app.goo.gl/8hws2nnF94ukuQRH7" target="_blank" rel="noopener noreferrer">
+                                        <strong>Shanghai Office:</strong><br>
+                                        No. 42, Oriental Global Enterprise Park,<br>
+                                        Lane 118, Yonghe Road, Jing'an District, 
+                                        Shanghai, China
+                                    </a>
+                                    <div class="map-wrap">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1704.7769961539564!2d121.44418016618589!3d31.288430000000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b271e27ef94de7%3A0x49731de3a1b68abc!2z5LiK5rW35Lic5pa5546v55CD5LyB5Lia5Lit5b-D!5e0!3m2!1szh-CN!2s!4v1764782743367!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                                <div class="office">
+                                    <a href="https://maps.app.goo.gl/pycgDY31ccRc5Dbw8" target="_blank" rel="noopener noreferrer">
+                                        <strong>Xi'an Office:</strong><br>
+                                        Room 1206, Block A, Jiatian International,<br>
+                                        No. 216 Taibai South Road,<br>
+                                        Xi'an, Shaanxi Province, China
+                                    </a>
+                                    <div class="map-wrap">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.5178128711798!2d108.91379342881429!3d34.22210872532615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x366370c8a73c71e5%3A0x71f48b8d98e363d5!2z5ZiJ5aSp5Zu96ZmF!5e0!3m2!1szh-CN!2s!4v1764782651213!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>Email: <a href="mailto:ronnie@wantok.com.cn">ronnie@wantok.com.cn</a></li>
+                                <li>Telephone: <a href="tel:+8613709183056">+86 137-0918-3056</a></li>
+                            </ul>
+                        </div>
             <div class="footer-column">
                 <h3>Follow Us</h3>
                 <ul class="vertical-social">
-                    <li><a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="https://www.twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-                    <li><a href="https://www.instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
                 </ul>
             </div>
         </div>

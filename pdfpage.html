@@ -154,6 +154,36 @@
                 flex: 0 0 100%;
             }
         }
+
+        /* Address + embedded map two-column layout */
+        .address-maps {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .address-maps .office {
+            flex: 1 1 50%;
+            min-width: 220px;
+        }
+
+        .address-maps .office a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .map-wrap iframe {
+            width: 100%;
+            height: 200px;
+            border: 0;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .address-maps {
+                flex-direction: column;
+            }
+        }
         
         .manual-section {
             background: #f9f9f9;
@@ -279,6 +309,50 @@
                 padding: 12px
             }
         }
+
+        /* Simple PDF auth modal */
+        #pdfAuthModal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+        }
+
+        #pdfAuthModal .modal-content {
+            background: #fff;
+            color: #222;
+            padding: 18px;
+            border-radius: 8px;
+            width: 340px;
+            max-width: 92%;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.28);
+        }
+
+        #pdfAuthModal input[type="text"],
+        #pdfAuthModal input[type="password"] {
+            width: 100%;
+            padding: 8px 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #pdfAuthModal .modal-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+
+        #pdfAuthModal button { padding: 8px 12px; border-radius: 5px; border: none; cursor: pointer }
+        #pdfAuthModal .btn-primary { background: #00703c; color: #fff }
+        #pdfAuthModal .btn-secondary { background: #eee; color: #222 }
+
+        .protected-pdf.locked { opacity: 0.98 }
     </style>
 </head>
 
@@ -300,6 +374,26 @@
         </div>
     </header>
 
+    <!-- PDF auth modal -->
+    <div id="pdfAuthModal" aria-hidden="true">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="pdfAuthTitle">
+            <h3 id="pdfAuthTitle">Please sign in to download PDFs</h3>
+            <div>
+                <label for="authUser">Username</label>
+                <input id="authUser" type="text" autocomplete="username" />
+            </div>
+            <div>
+                <label for="authPass">Password</label>
+                <input id="authPass" type="password" autocomplete="current-password" />
+            </div>
+            <div id="authMsg" style="color:#c00;min-height:18px;font-size:0.95rem"></div>
+            <div class="modal-actions">
+                <button id="authCancel" type="button" class="btn-secondary">Cancel</button>
+                <button id="authSubmit" type="button" class="btn-primary">Sign In</button>
+            </div>
+        </div>
+    </div>
+
     <!-- PRODUCTS BROCHURE section -->
     <section class="manual-section">
         <h2>PRODUCTS BROCHURE</h2>
@@ -308,46 +402,25 @@
             <div class="manual-card">
                 <img src="images/manual-covers/1.png" alt="Brochure cover 1">
                 <div class="manual-card-content">
-                    <h3>Complete Product Catalogue</h3>
-                    <p>Download the full PDF catalogue with detailed product information, specifications and ordering details.</p>
+                    <h3>Complete Catalogue</h3>
+                    <p>Download the full PDF catalogue with detailed product information.</p>
                     <div class="j-calltoaction-wrapper">
-                        <a class="j-calltoaction-link j-calltoaction-link-style-3" href="pdf/1.pdf" target="_blank" rel="noopener" aria-label="Download PDF catalogue 1">PDF Download</a>
+                        <a class="j-calltoaction-link j-calltoaction-link-style-3 protected-pdf locked" href="#" data-href="pdf\Garden Tools（210X285mm ）21.03.16.pdf" target="_blank" rel="noopener" aria-label="Download PDF catalogue 1">PDF Download</a>
                     </div>
                 </div>
             </div>
 
             <div class="manual-card">
-                <img src="images/manual-covers/1.png" alt="Brochure cover 2">
+                <img src="images/manual-covers/2.png" alt="Brochure cover 2">
                 <div class="manual-card-content">
-                    <h3>Seasonal Brochure</h3>
+                    <h3>Power Tools</h3>
                     <p>An overview of our seasonal products and offers. Ideal for quick reference.</p>
                     <div class="j-calltoaction-wrapper">
-                        <a class="j-calltoaction-link j-calltoaction-link-style-3" href="pdf/2.pdf" target="_blank" rel="noopener" aria-label="Download PDF catalogue 2">PDF Download</a>
+                        <a class="j-calltoaction-link j-calltoaction-link-style-3 protected-pdf locked" href="#" data-href="pdf\WANTOK Power Tools Brochure.pdf" target="_blank" rel="noopener" aria-label="Download PDF catalogue 2">PDF Download</a>
                     </div>
                 </div>
             </div>
 
-            <div class="manual-card">
-                <img src="images/manual-covers/1.png" alt="Brochure cover 3">
-                <div class="manual-card-content">
-                    <h3>Parts & Accessories</h3>
-                    <p>Technical sheets and ordering codes for replacement parts and accessories.</p>
-                    <div class="j-calltoaction-wrapper">
-                        <a class="j-calltoaction-link j-calltoaction-link-style-3" href="pdf/3.pdf" target="_blank" rel="noopener" aria-label="Download PDF catalogue 3">PDF Download</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="manual-card">
-                <img src="images/manual-covers/1.png" alt="Brochure cover 4">
-                <div class="manual-card-content">
-                    <h3>Installation & Safety</h3>
-                    <p>Guides, safety instructions and recommended maintenance schedules.</p>
-                    <div class="j-calltoaction-wrapper">
-                        <a class="j-calltoaction-link j-calltoaction-link-style-3" href="pdf/4.pdf" target="_blank" rel="noopener" aria-label="Download PDF catalogue 4">PDF Download</a>
-                    </div>
-                </div>
-            </div>
         </div>
 
 
@@ -355,22 +428,43 @@
 
     <!-- 增强的页脚 -->
     <footer id="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <ul>
-                    <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
-                    <li>Address: 123 Main St, Anytown, USA</li>
-                    <li>Telephone: <a href="tel:+1234567890">+1 (234) 567-890</a></li>
-                    <li><a href="https://www.google.com/maps/place/123+Main+St,+Anytown,+USA" target="_blank">View on Map</a></li>
-                </ul>
-            </div>
+                <div class="footer-container">
+                        <div class="footer-column">
+                            <h3>Contact Us</h3>
+                            <div class="address-maps">
+                                <div class="office">
+                                    <a href="https://maps.app.goo.gl/8hws2nnF94ukuQRH7" target="_blank" rel="noopener noreferrer">
+                                        <strong>Shanghai Office:</strong><br>
+                                        No. 42, Oriental Global Enterprise Park,<br>
+                                        Lane 118, Yonghe Road, Jing'an District, Shanghai, China
+                                    </a>
+                                    <div class="map-wrap">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1704.7769961539564!2d121.44418016618589!3d31.288430000000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b271e27ef94de7%3A0x49731de3a1b68abc!2z5LiK5rW35Lic5pa5546v55CD5LyB5Lia5Lit5b-D!5e0!3m2!1szh-CN!2s!4v1764782743367!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                                <div class="office">
+                                    <a href="https://maps.app.goo.gl/pycgDY31ccRc5Dbw8" target="_blank" rel="noopener noreferrer">
+                                        <strong>Xi'an Office:</strong><br>
+                                        Room 1206, Block A, Jiatian International,<br>
+                                        No. 216 Taibai South Road,<br>
+                                        Xi'an, Shaanxi Province, China
+                                    </a>
+                                    <div class="map-wrap">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.5178128711798!2d108.91379342881429!3d34.22210872532615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x366370c8a73c71e5%3A0x71f48b8d98e363d5!2z5ZiJ5aSp5Zu96ZmF!5e0!3m2!1szh-CN!2s!4v1764782651213!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>Email: <a href="mailto:ronnie@wantok.com.cn">ronnie@wantok.com.cn</a></li>
+                                <li>Telephone: <a href="tel:+8613709183056">+86 137-0918-3056</a></li>
+                            </ul>
+                        </div>
             <div class="footer-column">
                 <h3>Follow Us</h3>
                 <ul class="vertical-social">
-                    <li><a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="https://www.twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-                    <li><a href="https://www.instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -379,6 +473,89 @@
         </div>
     </footer>
 
+</body>
+
+        <script>
+        (function(){
+            const USER = 'wantok';
+            const PASS = 'wantok9';
+
+            function isAuth(){ return sessionStorage.getItem('pdfAuth') === '1'; }
+
+            function showModal(){
+                const m = document.getElementById('pdfAuthModal');
+                if(!m) return;
+                m.style.display = 'flex';
+                m.setAttribute('aria-hidden','false');
+                document.getElementById('authMsg').textContent='';
+                document.getElementById('authUser').focus();
+            }
+
+            function hideModal(){
+                const m = document.getElementById('pdfAuthModal');
+                if(!m) return;
+                m.style.display = 'none';
+                m.setAttribute('aria-hidden','true');
+            }
+
+            function unlockProtected(){
+                document.querySelectorAll('.protected-pdf').forEach(a => {
+                    a.removeEventListener('click', protectedClick);
+                    a.addEventListener('click', protectedClick);
+                    if(isAuth()){
+                        // allow direct open
+                        if(a.dataset.href) a.href = a.dataset.href;
+                    } else {
+                        a.href = '#';
+                    }
+                });
+            }
+
+            function protectedClick(e){
+                const a = e.currentTarget;
+                if(!isAuth()){
+                    e.preventDefault();
+                    showModal();
+                    // remember last-clicked link so we can open after auth
+                    sessionStorage.setItem('pdf_last', a.dataset.href || '');
+                    return;
+                }
+                // authenticated: allow opening
+                const href = a.dataset.href || a.href;
+                if(href){
+                    window.open(href, '_blank');
+                    e.preventDefault();
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function(){
+                unlockProtected();
+
+                const submit = document.getElementById('authSubmit');
+                const cancel = document.getElementById('authCancel');
+
+                submit && submit.addEventListener('click', function(){
+                    const u = document.getElementById('authUser').value.trim();
+                    const p = document.getElementById('authPass').value;
+                    if(u === USER && p === PASS){
+                        sessionStorage.setItem('pdfAuth','1');
+                        hideModal();
+                        unlockProtected();
+                        // open last requested pdf if any
+                        const last = sessionStorage.getItem('pdf_last');
+                        if(last){ window.open(last, '_blank'); sessionStorage.removeItem('pdf_last'); }
+                    } else {
+                        document.getElementById('authMsg').textContent = 'Username or password incorrect.';
+                    }
+                });
+
+                cancel && cancel.addEventListener('click', function(){ hideModal(); });
+
+                // Esc to close
+                document.addEventListener('keydown', function(ev){ if(ev.key === 'Escape') hideModal(); });
+            });
+        })();
+        </script>
 
 </body>
 
