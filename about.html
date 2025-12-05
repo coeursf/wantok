@@ -74,7 +74,7 @@
       left: 0;
       width: 100%;
       height: 70vh;
-      background-image: url('images/about/factory_image.jpg');
+      background-image: url('images/about/factory_image-2.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -510,6 +510,168 @@
     .visuals-unified.gutter { padding-top: 12px; padding-bottom: 18px; }
     .profile-section.gutter { padding-top: 12px; padding-bottom: 40px; }
 
+    /* New styles for restructured layout */
+    .factory-section {
+      padding: 30px 20px;
+    }
+
+    .factory-section .factory-single {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .factory-section .factory-carousel {
+      width: 100%;
+    }
+
+    .factory-section .carousel-item img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* Content sections with structured text */
+    .content-sections {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Intro section with factory image on left */
+    .intro-with-factory {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+      align-items: flex-start;
+    }
+
+    .intro-with-factory .factory-image {
+      flex: 0 0 40%;
+      min-width: 280px;
+    }
+
+    .intro-with-factory .factory-image .factory-carousel {
+      width: 100%;
+    }
+
+    .intro-with-factory .factory-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .intro-with-factory .intro-text {
+      flex: 1;
+      padding-top: 0;
+    }
+
+    .intro-with-factory .intro-text p {
+      margin-top: 0;
+    }
+
+    @media (max-width: 880px) {
+      .intro-with-factory {
+        flex-direction: column;
+      }
+
+      .intro-with-factory .factory-image {
+        flex: 1;
+        min-width: 100%;
+      }
+    }
+
+    .content-sections h1 {
+      color: #00703c;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 0;
+    }
+
+    .content-sections h2 {
+      color: #00703c;
+      font-size: 28px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #00703c;
+      padding-bottom: 10px;
+    }
+
+    .content-sections p {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .content-sections ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .content-sections ul li {
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .content-sections strong {
+      color: #00703c;
+    }
+
+    /* Two-column layout for process and expo */
+    .two-column-grid {
+      display: flex;
+      gap: 22px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      align-items: flex-start;
+    }
+
+    .two-column-grid .col {
+      flex: 1 1 50%;
+      min-width: 300px;
+    }
+
+    .two-column-grid .col h3 {
+      margin: 0 0 15px;
+      color: #00703c;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .two-column-grid .carousel-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .two-column-grid {
+        flex-direction: column;
+      }
+
+      .content-sections {
+        padding: 20px 15px;
+      }
+
+      .content-sections h2 {
+        font-size: 22px;
+      }
+
+      .factory-section .carousel-item img {
+        height: 250px;
+      }
+    }
+
   </style>
 </head>
 
@@ -538,69 +700,84 @@
 
   <div class="content-wrapper">
 
-  <!-- images -->
-  <section class="gutter white center visuals-unified">
-    <div class="wrapper">
-      <h2 class="section-title">About Us</h2>
-    </div>
-
-    <div class="three-grid">
-      <div class="col factory-col">
+  <!-- Main Content Sections -->
+  <section class="content-sections">
+    <h1>WANTOK GARDENING — Tools That Make Work Easier</h1>
+    
+    <div class="intro-with-factory">
+      <div class="factory-image">
         <div class="visual-card">
-          <div class="overlay-title">Our Factory</div>
           <div class="factory-carousel">
             <div class="carousel-item"><a data-fancybox="factory" href="images/about/factory_image.jpg"><img src="images/about/factory_image.jpg" alt="Factory 1"></a></div>
             <div class="carousel-item"><a data-fancybox="factory" href="images/about/factory_image-2.jpg"><img src="images/about/factory_image-2.jpg" alt="Factory 2"></a></div>
           </div>
         </div>
       </div>
+      <div class="intro-text">
+        <p><strong>Founded in 1993, WANTOK GARDENING is a leading manufacturer and exporter specializing in gardening tools, farming tools, hand tools, and garden accessories. With tens of thousands of SKUs across rakes, scissors, spades, saws, and more, we provide a complete and reliable product range for retailers, importers, wholesalers, and distributors worldwide.</strong></p>
 
-      <div class="col process-col">
-        <div class="visual-card">
-          <div class="overlay-title">Manufacturing</div>
-          <div class="process-carousel">
-            <div class="carousel-item"><a data-fancybox="process" href="images/about/process1.jpg"><img src="images/about/process1.jpg" alt="Process 1"></a></div>
-            <div class="carousel-item"><a data-fancybox="process" href="images/about/process2.jpg"><img src="images/about/process2.jpg" alt="Process 2"></a></div>
-            <div class="carousel-item"><a data-fancybox="process" href="images/about/process3.jpg"><img src="images/about/process3.jpg" alt="Process 3"></a></div>
-            <div class="carousel-item"><a data-fancybox="process" href="images/about/process4.jpg"><img src="images/about/process4.jpg" alt="Process 4"></a></div>
-          </div>
-        </div>
+        <p>For more than 30 years, our mission has remained simple: to make outdoor work easier, safer, and more enjoyable. Every WANTOK tool is engineered with durability, comfort, and practicality in mind—helping both professionals and home gardeners achieve better results with less effort.</p>
       </div>
+    </div>
 
-      <div class="col expo-col">
-        <div class="visual-card">
-          <div class="overlay-title">Exhibitions</div>
-          <div class="expo-carousel">
-            <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo1.jpg"><img src="images/about/expo1.jpg" alt="Expo 1"></a></div>
-            <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo2.jpg"><img src="images/about/expo2.jpg" alt="Expo 2"></a></div>
-            <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo3.jpg"><img src="images/about/expo3.jpg" alt="Expo 3"></a></div>
-            <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo4.jpg"><img src="images/about/expo4.jpg" alt="Expo 4"></a></div>
-          </div>
+    <h2>Manufacturing Excellence</h2>
+    <p>WANTOK's manufacturing strength is built on strict quality systems, advanced production lines, and a deeply experienced engineering team.</p>
+    <ul>
+      <li><strong>Certified & Compliant:</strong> Our facilities have passed BSCI, ICS, FSC, and ISO9001 inspections.</li>
+      <li><strong>Modern Production:</strong> Automated equipment, precision machining, advanced heat treatments, and strict surface finishing processes ensure consistent durability.</li>
+      <li><strong>Rigorous Quality Control:</strong> Material selection, manufacturing stages, and final inspections are tightly supervised at every step.</li>
+      <li><strong>Strategic Supply Chain:</strong> Warehouses and production support centers across Shandong, Hebei, and Zhejiang Province ensure efficient logistics and stable supply.</li>
+    </ul>
+    <p>This foundation allows us to deliver tools that meet the high standards of global markets while supporting the scale and timelines required by global customers.</p>
+
+    <h2>Design & Innovation</h2>
+    <p>In a competitive global market, innovation is essential. WANTOK invests heavily in talent development and product R&D, maintaining a dedicated design team that continuously brings fresh solutions to the industry.</p>
+    <p>Over the past 30 years, we have developed nearly 26 complete product series and hold numerous independent intellectual property rights and appearance patents. Today, more than 10,000 WANTOK products reach customers worldwide each year, reinforcing our reputation for quality and reliability in the global landscaping and hardware market.</p>
+
+    <h2>Global Market Leadership</h2>
+    <p>WANTOK has established long-term partnerships with over 300 professional customers worldwide, including international building-material chains, supermarkets, importers, and wholesalers. Our commitment to consistent quality and reliable service has earned us high recognition in global markets that prioritize dependability, safety, and performance.</p>
+    <p>Many well-known customers continue to choose WANTOK not only for product quality, but for our operational strength—stable supply chain, flexible production, transparent communication, and strict compliance with international standards.</p>
+
+    <h2>Trusted Sales & Service</h2>
+    <p>Headquartered in Shanghai Oriental Global Enterprise Park, WANTOK provides seamless one-stop procurement services—from ordering and packaging supervision to after-sales support.</p>
+    <ul>
+      <li>Our professional team is experienced in international trade rules and familiar with manufacturing details.</li>
+      <li>Every shipment undergoes pre-shipment inspection by WANTOK's internal QC team.</li>
+      <li>We maintain long-term cooperation with TÜV, BV, SGS and other respected third-party institutions for added reliability.</li>
+    </ul>
+    <p>We believe excellent service is not a promise—it's a discipline. With every order, we aim to provide an easy, secure, and efficient purchasing experience.</p>
+
+    <h2>Our Commitment</h2>
+    <p><strong>Excellent quality, competitive prices, and dependable service are the principles that define WANTOK. Whether you are expanding your product line, consolidating suppliers, or building a private-label program, WANTOK offers the strength, stability, and experience to support your success.</strong></p>
+    <p style="text-align: center; font-size: 18px; color: #00703c; font-weight: bold; margin-top: 30px;">Choose WANTOK—your trusted partner in professional gardening and hand tools.</p>
+  </section>
+
+  <!-- Process and Expo Carousels -->
+  <section class="two-column-grid">
+    <div class="col">
+      <h3>Manufacturing</h3>
+      <div class="visual-card">
+        <div class="process-carousel">
+          <div class="carousel-item"><a data-fancybox="process" href="images/about/process1.jpg"><img src="images/about/process1.jpg" alt="Process 1"></a></div>
+          <div class="carousel-item"><a data-fancybox="process" href="images/about/process2.jpg"><img src="images/about/process2.jpg" alt="Process 2"></a></div>
+          <div class="carousel-item"><a data-fancybox="process" href="images/about/process3.jpg"><img src="images/about/process3.jpg" alt="Process 3"></a></div>
+          <div class="carousel-item"><a data-fancybox="process" href="images/about/process4.jpg"><img src="images/about/process4.jpg" alt="Process 4"></a></div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- text -->
-  <section class="gutter white center profile-section">
-    <div class="wrapper">
-      <h2 class="section-title"></h2>
-      <div style="max-width:900px;margin:0 auto;padding:40px;background:#ffffff;border-radius:6px;text-align:center;color:#333;">
-        <p>WANTOK GARDENING is a professional manufacturer and trader for the gardening tools and hand tools which was established in 1993. The main products include all kinds of Rakes, Scissors, Spades, Saws and other dozens of categories, tens of thousands of kinds of tools. WANTOK is devoting itself to making labor an easier thing.</p>
 
-        <p>As a professional manufacturer, WANTOK has passed the BSCI, ICS, FSC and other professional inspection strict inspection. Perfect management system and quality system is the foundation for the development of the factory. At present, WANTOK has its own supply chain and warehouses in Shandong, Hebei and Zhejiang provinces of China.</p>
-
-        <p>WANTOK attaches great importance to talent construction and actively trains up its own R&amp;D team. At present, three products systems have been formed, and more than 10,000 products are sold worldwide every year.</p>
-
-        <p>WANTOK is attractive to customers in different regions. In the past two decades, more than 300 professional customers all over the world have cooperated with WANTOK.</p>
-
-        <p>Headquartered in Shanghai Oriental global enterprise park, the company provides one-stop procurement services for global customers: ordering, inspection, packaging supervision, after-sales and other worry-free services.</p>
-
-        <p>Excellent quality, preferential price and best service are always our tenet and eternal goal. Choose “WANTOK” one-stop shopping feels at ease! Product quality and cooperates with TUV, BV, SGS and other internationally renowned third-party inspection institutions for a long time.</p>
-
-        <p><strong>Excellent quality, preferential price and best service are always our tenet and eternal goal. Choose “WANTOK” one-stop shopping feels at ease!</strong></p>
+    <div class="col">
+      <h3>Exhibitions</h3>
+      <div class="visual-card">
+        <div class="expo-carousel">
+          <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo1.jpg"><img src="images/about/expo1.jpg" alt="Expo 1"></a></div>
+          <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo2.jpg"><img src="images/about/expo2.jpg" alt="Expo 2"></a></div>
+          <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo3.jpg"><img src="images/about/expo3.jpg" alt="Expo 3"></a></div>
+          <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo4.jpg"><img src="images/about/expo4.jpg" alt="Expo 4"></a></div>
+        </div>
       </div>
     </div>
-  </section>
+
 
   </div>
 
