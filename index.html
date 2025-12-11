@@ -383,18 +383,14 @@
       }
     }
 
-    /* Brands carousel styling */
+/* Brands carousel styling */
     .brands .wrapper {
       display: flex;
       align-items: center;
-      gap: 128px; /* 36 */
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
     }
 
-    /* When Slick initializes it wraps the items and sets widths.
-       The site's `.wrapper` class defaults to flex which conflicts
-       with Slick's layout. Force the slick container to behave like
-       a block container and let the track be a flex row so slides
-       get correct auto widths and don't collapse to 0px. */
     .brands .wrapper.slick-slider {
       display: block !important;
       width: 100% !important;
@@ -402,20 +398,19 @@
 
     .brands .wrapper .slick-list {
       overflow: hidden;
+      padding: 0; 
     }
 
     .brands .wrapper .slick-track {
       display: flex !important;
       align-items: center;
-      gap: 128px; /* spacing between slides */
+      gap: 0 !important; 
     }
 
-    /* When the number of slides is small and all icons fit, center them */
     .brands .wrapper.justify-content {
       justify-content: center !important;
     }
 
-    /* Also ensure the slick track centers its children when they don't overflow */
     .brands .wrapper.slick-slider .slick-track {
       justify-content: center !important;
     }
@@ -425,21 +420,26 @@
       display: flex !important;
       align-items: center;
       justify-content: center;
-      flex: 0 0 auto !important; /* prevent stretching */
-      width: 160px !important; /* unified slide width */
-      height: 128px !important; /* unified slide height */
-      margin: 0 !important;
+      flex: 0 0 auto !important;
+      width: 160px !important;
+      height: 128px !important;
+  
+
+      margin: 0 64px !important; 
+  
       padding: 0 6px;
+      overflow: visible; 
     }
 
     .brands .carousel-item img,
     .brands .wrapper .slick-slide img {
-      width: 100%;
-      height: 100%;
+      width: 130%;
+      height: 130%;
       object-fit: contain;
       display: block;
+      position: relative;
+      z-index: 1;
     }
-
   </style>
 </head>
 
@@ -564,7 +564,12 @@
     <section class="gutter white center brands">
       <h2 class="brand-title">Trusted Partners</h2>
       <div class="wrapper justify-content wrap">
-        <div class="carousel-item active"><img src="images/trusted-partners/1.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/1.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/2.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/3.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/4.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/5.png"></div>
+        <div class="carousel-item"><img src="images/trusted-partners/1.png"></div>
         <div class="carousel-item"><img src="images/trusted-partners/2.png"></div>
         <div class="carousel-item"><img src="images/trusted-partners/3.png"></div>
         <div class="carousel-item"><img src="images/trusted-partners/4.png"></div>
@@ -572,53 +577,62 @@
       </div>
     </section>
 
-    <!-- 增强的页脚 -->
-    <footer id="footer">
-                <div class="footer-container">
-                        <div class="footer-column">
-                            <h3>Contact Us</h3>
-                            <div class="address-maps">
-                                <div class="office">
-                                    <a href="https://maps.app.goo.gl/8hws2nnF94ukuQRH7" target="_blank" rel="noopener noreferrer">
-                                        <strong>Shanghai Office:</strong><br>
-                                        No. 42, Oriental Global Enterprise Park,<br>
-                                        Lane 118, Yonghe Road, Jing'an District, 
-                                        Shanghai, China
-                                    </a>
-                                    <div class="map-wrap">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1704.7769961539564!2d121.44418016618589!3d31.288430000000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b271e27ef94de7%3A0x49731de3a1b68abc!2z5LiK5rW35Lic5pa5546v55CD5LyB5Lia5Lit5b-D!5e0!3m2!1szh-CN!2s!4v1764782743367!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    </div>
-                                </div>
-                                <div class="office">
-                                    <a href="https://maps.app.goo.gl/pycgDY31ccRc5Dbw8" target="_blank" rel="noopener noreferrer">
-                                        <strong>Xi'an Office:</strong><br>
-                                        Room 1206, Block A, Jiatian International,<br>
-                                        No. 216 Taibai South Road,<br>
-                                        Xi'an, Shaanxi Province, China
-                                    </a>
-                                    <div class="map-wrap">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.5178128711798!2d108.91379342881429!3d34.22210872532615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x366370c8a73c71e5%3A0x71f48b8d98e363d5!2z5ZiJ5aSp5Zu96ZmF!5e0!3m2!1szh-CN!2s!4v1764782651213!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>Email: <a href="mailto:ronnie@wantok.com.cn">ronnie@wantok.com.cn</a></li>
-                                <li>Telephone: <a href="tel:+8613709183056">+86 137-0918-3056</a></li>
-                            </ul>
-                        </div>
-            <div class="footer-column">
-                <h3>Follow Us</h3>
-                <ul class="vertical-social">
-                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                </ul>
+
+<footer id="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <div class="address-maps">
+                <div class="office">
+                    <a href="https://maps.app.goo.gl/8hws2nnF94ukuQRH7" target="_blank" rel="noopener noreferrer">
+                        <strong>Shanghai Office:</strong><br>
+                        No. 42, Oriental Global Enterprise Park,<br>
+                        Lane 118, Yonghe Road, Jing'an District, 
+                        Shanghai, China
+                    </a>
+                    <div class="map-wrap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1704.7769961539564!2d121.44418016618589!3d31.288430000000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b271e27ef94de7%3A0x49731de3a1b68abc!2z5LiK5rW35Lic5pa5546v55CD5LyB5Lia5Lit5b-D!5e0!3m2!1szh-CN!2s!4v1764782743367!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="office">
+                    <a href="https://maps.app.goo.gl/pycgDY31ccRc5Dbw8" target="_blank" rel="noopener noreferrer">
+                        <strong>Xi'an Office:</strong><br>
+                        Room 1206, Block A, Jiatian International,<br>
+                        No. 216 Taibai South Road,<br>
+                        Xi'an, Shaanxi Province, China
+                    </a>
+                    <div class="map-wrap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.5178128711798!2d108.91379342881429!3d34.22210872532615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x366370c8a73c71e5%3A0x71f48b8d98e363d5!2z5ZiJ5aSp5Zu96ZmF!5e0!3m2!1szh-CN!2s!4v1764782651213!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
             </div>
+            <div style="margin-top: 15px; font-size: 1.1rem; line-height: 1.8;">
+                <div style="margin-bottom: 5px;">
+                    <strong>Email:</strong> 
+                    <a href="mailto:ronnie@wantok.com.cn">ronnie@wantok.com.cn</a> / 
+                    <a href="mailto:ronnie@wantok-Tools.com.cn">ronnie@wantok-Tools.com.cn</a>
+                </div>
+                <div>
+                    <strong>Telephone:</strong> 
+                    <a href="tel:+8613709183056">+86 137-0918-3056</a> / 
+                    <a href="tel:02985360651">029-85360651</a>
+                </div>
+            </div>
+
         </div>
-        <div class="footer-bottom">
-            <p style="font-size: 0.875rem;">© 2019 - 2025 WANTOK Company. Worldwide Rights Reserved. ® or ™ indicates a trademark of WANTOK Company or its affiliates.</p>
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <ul class="vertical-social">
+                <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
         </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p style="font-size: 0.875rem;">© 2019 - 2025 WANTOK Company. Worldwide Rights Reserved. ® or ™ indicates a trademark of WANTOK Company or its affiliates.</p>
+    </div>
+</footer>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
