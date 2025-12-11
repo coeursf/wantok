@@ -21,6 +21,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
   <style>
+
+
+    section.content-sections {
+      color: #000000;
+    }
+
+
+    section.content-sections * {
+      color: #000000 !important;
+    }
+
+
+    section.content-sections h1,
+    section.content-sections h2,
+    section.content-sections h3,
+    section.content-sections h4,
+    section.content-sections h5,
+    section.content-sections h6 {
+      border-bottom: none !important;
+      box-shadow: none !important;
+    }
+
+
+    section.content-sections h1::after,
+    section.content-sections h2::after,
+    section.content-sections h3::after,
+    section.content-sections h4::after,
+    section.content-sections h5::after,
+    section.content-sections h6::after {
+      content: none !important;
+      border: none !important;
+      background: none !important;
+    }
+
     .header nav ul li a {
       color: black;
       text-decoration: none;
@@ -74,7 +108,7 @@
       left: 0;
       width: 100%;
       height: 70vh;
-      background-image: url('images/about/factory_image-2.jpg');
+      background-image: url('images/about/factory_image.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -534,7 +568,7 @@
 
     /* Content sections with structured text */
     .content-sections {
-      max-width: 1000px;
+      max-width: 1500px;
       margin: 0 auto;
       padding: 40px 20px;
     }
@@ -593,7 +627,7 @@
 
     .content-sections h2 {
       color: #00703c;
-      font-size: 28px;
+      font-size: 39px;
       margin-top: 30px;
       margin-bottom: 15px;
       border-bottom: 2px solid #00703c;
@@ -602,7 +636,7 @@
 
     .content-sections p {
       color: #333;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.7;
       margin-bottom: 15px;
       text-align: justify;
@@ -625,28 +659,28 @@
     }
 
     /* Two-column layout for process and expo */
-    .two-column-grid {
+    .four-column-grid {
       display: flex;
       gap: 22px;
-      max-width: 1000px;
+      max-width: 1500px;
       margin: 0 auto;
       padding: 30px 20px;
       align-items: flex-start;
     }
 
-    .two-column-grid .col {
-      flex: 1 1 50%;
+    .four-column-grid .col {
+      flex: 1 1 25%;
       min-width: 300px;
     }
 
-    .two-column-grid .col h3 {
+    .four-column-grid .col h3 {
       margin: 0 0 15px;
       color: #00703c;
       font-size: 22px;
       text-align: center;
     }
 
-    .two-column-grid .carousel-item img {
+    .four-column-grid .carousel-item img {
       width: 100%;
       height: 280px;
       object-fit: cover;
@@ -655,7 +689,7 @@
     }
 
     @media (max-width: 768px) {
-      .two-column-grid {
+      .four-column-grid {
         flex-direction: column;
       }
 
@@ -709,7 +743,6 @@
         <div class="visual-card">
           <div class="factory-carousel">
             <div class="carousel-item"><a data-fancybox="factory" href="images/about/factory_image.jpg"><img src="images/about/factory_image.jpg" alt="Factory 1"></a></div>
-            <div class="carousel-item"><a data-fancybox="factory" href="images/about/factory_image-2.jpg"><img src="images/about/factory_image-2.jpg" alt="Factory 2"></a></div>
           </div>
         </div>
       </div>
@@ -749,29 +782,38 @@
 
     <h2>Our Commitment</h2>
     <p><strong>Excellent quality, competitive prices, and dependable service are the principles that define WANTOK. Whether you are expanding your product line, consolidating suppliers, or building a private-label program, WANTOK offers the strength, stability, and experience to support your success.</strong></p>
-    <p style="text-align: center; font-size: 18px; color: #00703c; font-weight: bold; margin-top: 30px;">Choose WANTOK—your trusted partner in professional gardening and hand tools.</p>
+    <p style="text-align: center; font-size: 18px; color: #000000; font-weight: bold; margin-top: 30px;">Choose WANTOK—your trusted partner in professional gardening and hand tools.</p>
   </section>
-
+  <h3 style="text-align: center;">Manufacturing & EXPO</h3>
   <!-- Process and Expo Carousels -->
-  <section class="two-column-grid">
+  <section class="four-column-grid">
     <div class="col">
-      <h3>Manufacturing</h3>
       <div class="visual-card">
         <div class="process-carousel">
           <div class="carousel-item"><a data-fancybox="process" href="images/about/process1.jpg"><img src="images/about/process1.jpg" alt="Process 1"></a></div>
           <div class="carousel-item"><a data-fancybox="process" href="images/about/process2.jpg"><img src="images/about/process2.jpg" alt="Process 2"></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="visual-card">
+        <div class="process-carousel">
           <div class="carousel-item"><a data-fancybox="process" href="images/about/process3.jpg"><img src="images/about/process3.jpg" alt="Process 3"></a></div>
           <div class="carousel-item"><a data-fancybox="process" href="images/about/process4.jpg"><img src="images/about/process4.jpg" alt="Process 4"></a></div>
         </div>
       </div>
     </div>
-
     <div class="col">
-      <h3>Exhibitions</h3>
       <div class="visual-card">
-        <div class="expo-carousel">
+        <div class="process-carousel">
           <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo1.jpg"><img src="images/about/expo1.jpg" alt="Expo 1"></a></div>
           <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo2.jpg"><img src="images/about/expo2.jpg" alt="Expo 2"></a></div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="visual-card">
+        <div class="expo-carousel">
           <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo3.jpg"><img src="images/about/expo3.jpg" alt="Expo 3"></a></div>
           <div class="carousel-item"><a data-fancybox="expo" href="images/about/expo4.jpg"><img src="images/about/expo4.jpg" alt="Expo 4"></a></div>
         </div>
@@ -781,53 +823,61 @@
 
   </div>
 
-    <!-- 增强的页脚 -->
-    <footer id="footer">
-                <div class="footer-container">
-                        <div class="footer-column">
-                            <h3>Contact Us</h3>
-                            <div class="address-maps">
-                                <div class="office">
-                                    <a href="https://maps.app.goo.gl/8hws2nnF94ukuQRH7" target="_blank" rel="noopener noreferrer">
-                                        <strong>Shanghai Office:</strong><br>
-                                        No. 42, Oriental Global Enterprise Park,<br>
-                                        Lane 118, Yonghe Road, Jing'an District, 
-                                        Shanghai, China
-                                    </a>
-                                    <div class="map-wrap">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1704.7769961539564!2d121.44418016618589!3d31.288430000000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b271e27ef94de7%3A0x49731de3a1b68abc!2z5LiK5rW35Lic5pa5546v55CD5LyB5Lia5Lit5b-D!5e0!3m2!1szh-CN!2s!4v1764782743367!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    </div>
-                                </div>
-                                <div class="office">
-                                    <a href="https://maps.app.goo.gl/pycgDY31ccRc5Dbw8" target="_blank" rel="noopener noreferrer">
-                                        <strong>Xi'an Office:</strong><br>
-                                        Room 1206, Block A, Jiatian International,<br>
-                                        No. 216 Taibai South Road,<br>
-                                        Xi'an, Shaanxi Province, China
-                                    </a>
-                                    <div class="map-wrap">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.5178128711798!2d108.91379342881429!3d34.22210872532615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x366370c8a73c71e5%3A0x71f48b8d98e363d5!2z5ZiJ5aSp5Zu96ZmF!5e0!3m2!1szh-CN!2s!4v1764782651213!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>Email: <a href="mailto:ronnie@wantok.com.cn">ronnie@wantok.com.cn</a></li>
-                                <li>Telephone: <a href="tel:+8613709183056">+86 137-0918-3056</a></li>
-                            </ul>
-                        </div>
-            <div class="footer-column">
-                <h3>Follow Us</h3>
-                <ul class="vertical-social">
-                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                </ul>
+<footer id="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Contact Us</h3>
+            <div class="address-maps">
+                <div class="office">
+                    <a href="https://maps.app.goo.gl/8hws2nnF94ukuQRH7" target="_blank" rel="noopener noreferrer">
+                        <strong>Shanghai Office:</strong><br>
+                        No. 42, Oriental Global Enterprise Park,<br>
+                        Lane 118, Yonghe Road, Jing'an District, 
+                        Shanghai, China
+                    </a>
+                    <div class="map-wrap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1704.7769961539564!2d121.44418016618589!3d31.288430000000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b271e27ef94de7%3A0x49731de3a1b68abc!2z5LiK5rW35Lic5pa5546v55CD5LyB5Lia5Lit5b-D!5e0!3m2!1szh-CN!2s!4v1764782743367!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="office">
+                    <a href="https://maps.app.goo.gl/pycgDY31ccRc5Dbw8" target="_blank" rel="noopener noreferrer">
+                        <strong>Xi'an Office:</strong><br>
+                        Room 1206, Block A, Jiatian International,<br>
+                        No. 216 Taibai South Road,<br>
+                        Xi'an, Shaanxi Province, China
+                    </a>
+                    <div class="map-wrap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1649.5178128711798!2d108.91379342881429!3d34.22210872532615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x366370c8a73c71e5%3A0x71f48b8d98e363d5!2z5ZiJ5aSp5Zu96ZmF!5e0!3m2!1szh-CN!2s!4v1764782651213!5m2!1szh-CN!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
             </div>
+            <div style="margin-top: 15px; font-size: 1.1rem; line-height: 1.8;">
+                <div style="margin-bottom: 5px;">
+                    <strong>Email:</strong> 
+                    <a href="mailto:ronnie@wantok.com.cn">ronnie@wantok.com.cn</a> / 
+                    <a href="mailto:ronnie@wantok-Tools.com.cn">ronnie@wantok-Tools.com.cn</a>
+                </div>
+                <div>
+                    <strong>Telephone:</strong> 
+                    <a href="tel:+8613709183056">+86 137-0918-3056</a> / 
+                    <a href="tel:02985360651">029-85360651</a>
+                </div>
+            </div>
+
         </div>
-        <div class="footer-bottom">
-            <p style="font-size: 0.875rem;">© 2019 - 2025 WANTOK Company. Worldwide Rights Reserved. ® or ™ indicates a trademark of WANTOK Company or its affiliates.</p>
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <ul class="vertical-social">
+                <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+            </ul>
         </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p style="font-size: 0.875rem;">© 2019 - 2025 WANTOK Company. Worldwide Rights Reserved. ® or ™ indicates a trademark of WANTOK Company or its affiliates.</p>
+    </div>
+</footer>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
